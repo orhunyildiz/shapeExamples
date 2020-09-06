@@ -9,6 +9,14 @@ public class Shapes {
         System.out.println("|||||||||||||||||||||||||||");
         shapes.drawEquilateralTriangle(7);
         System.out.println("|||||||||||||||||||||||||||");
+        shapes.drawRightTriangleVersion2(7);
+        System.out.println("|||||||||||||||||||||||||||");
+        shapes.drawRightTriangleVersion3(7);
+        System.out.println("|||||||||||||||||||||||||||");
+        shapes.drawEquilateralTriangleVersion2(7);
+        System.out.println("|||||||||||||||||||||||||||");
+        shapes.drawEquilateralQuadrangle(7);
+        /*
         shapes.drawFilledRectangleWithArray(10,5);
         System.out.println("|||||||||||||||||||||||||||");
         shapes.drawVoidRectangleWithArray(10, 5);
@@ -16,6 +24,8 @@ public class Shapes {
         shapes.drawRightTriangleWithArray(5);
         System.out.println("|||||||||||||||||||||||||||");
         shapes.drawEquilateralTriangleWithArray(5);
+        */
+
 
     }
 
@@ -23,9 +33,8 @@ public class Shapes {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
                 System.out.print("*");
-                if (j == column - 1)
-                    System.out.println();
             }
+            System.out.println();
         }
     }
 
@@ -63,12 +72,12 @@ public class Shapes {
     }
 
     public void drawEquilateralTriangle(int height) {
-        int column = (2 * height) - 1;
-        int tmp = (column - 1) / 2;
+        int column = (2 * height) - 1; //column number
+        int tmp = (column - 1) / 2; //necessary for space
         for (int i = 1; i <= height; i++) {
             for (int j = 1; j <= column; j++) {
                 if (i != height) {
-                    if (j <= tmp || j >= (i * 2) + tmp)
+                    if (j <= tmp || j >= (i * 2) + tmp) // space condition
                         System.out.print(" ");
                     else
                         System.out.print("*");
@@ -165,6 +174,81 @@ public class Shapes {
                 System.out.print(chars[i][j]);
             }
             System.out.println();
+        }
+    }
+
+    public void drawRightTriangleVersion2(int height) {
+        int star = 1;
+
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < star; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+            star++;
+        }
+
+    }
+
+    public void drawRightTriangleVersion3(int height) {
+        int space = height - 1;
+
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < height; j++) {
+                if (space > j)
+                    System.out.print(" ");
+                else
+                    System.out.print("*");
+            }
+            space--;
+            System.out.println();
+        }
+    }
+
+    public void drawEquilateralTriangleVersion2(int height) {
+        int star = 1;
+        int space = height - 1;
+
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < space; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < star; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+            space--;
+            star += 2;
+        }
+    }
+
+    public void drawEquilateralQuadrangle(int height) {
+        int star = 1;
+        int space = height - 1;
+
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < space; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < star; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+            space--;
+            star += 2;
+        }
+        space = 1;
+        star -= 4;
+        for (int i = 0; i < height - 1; i++) {
+            for (int j = 0; j < space; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < star; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+            space++;
+            star -= 2;
         }
     }
 

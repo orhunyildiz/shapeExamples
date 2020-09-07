@@ -1,21 +1,26 @@
 public class Shapes {
     public static void main(String[] args) {
         Shapes shapes = new Shapes();
-        shapes.drawFilledRectangle(10, 5);
+        int row = 6, column = 3, height = 4;
+        shapes.drawFilledRectangle(row, column);
         System.out.println("|||||||||||||||||||||||||||");
-        shapes.drawVoidRectangle(10, 5);
+        shapes.drawVoidRectangle(row, column);
         System.out.println("|||||||||||||||||||||||||||");
-        shapes.drawRightTriangle(7);
+        shapes.drawRightTriangle(height);
         System.out.println("|||||||||||||||||||||||||||");
-        shapes.drawEquilateralTriangle(7);
+        shapes.drawEquilateralTriangle(height);
         System.out.println("|||||||||||||||||||||||||||");
-        shapes.drawRightTriangleVersion2(7);
+        shapes.drawRightTriangleVersion2(height);
         System.out.println("|||||||||||||||||||||||||||");
-        shapes.drawRightTriangleVersion3(7);
+        shapes.drawRightTriangleVersion3(height);
         System.out.println("|||||||||||||||||||||||||||");
-        shapes.drawEquilateralTriangleVersion2(7);
+        shapes.drawEquilateralTriangleVersion2(height);
         System.out.println("|||||||||||||||||||||||||||");
-        shapes.drawEquilateralQuadrangle(7);
+        shapes.drawEquilateralQuadrangle(height);
+        System.out.println("|||||||||||||||||||||||||||");
+        shapes.drawFrameTriangle(height);
+        System.out.println("|||||||||||||||||||||||||||");
+        shapes.drawFrameEquilateralQuadrangle(height);
         /*
         shapes.drawFilledRectangleWithArray(10,5);
         System.out.println("|||||||||||||||||||||||||||");
@@ -245,6 +250,71 @@ public class Shapes {
             }
             for (int j = 0; j < star; j++) {
                 System.out.print("*");
+            }
+            System.out.println();
+            space++;
+            star -= 2;
+        }
+    }
+
+    public void drawFrameTriangle(int height) {
+        int space = height - 1;
+        int star = 2;
+
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < space; j++) {
+                System.out.print(" ");
+            }
+
+            for (int j = 0; j < star; j++) {
+                if (j == 0)
+                    System.out.print("/");
+                else if (j == star - 1)
+                    System.out.print("\\");
+                else
+                    System.out.print("*");
+            }
+            System.out.println();
+            space--;
+            star += 2;
+
+        }
+    }
+
+    public void drawFrameEquilateralQuadrangle(int height) {
+        int star = 2;
+        int space = height - 1;
+
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < space; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < star; j++) {
+                if (j == 0)
+                    System.out.print("/");
+                else if (j == star - 1)
+                    System.out.print("\\");
+                else
+                    System.out.print("*");
+            }
+            System.out.println();
+            space--;
+            star += 2;
+        }
+        space = 0;
+        star -= 2;
+
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < space; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < star; j++) {
+                if (j == 0)
+                    System.out.print("\\");
+                else if (j == star - 1)
+                    System.out.print("/");
+                else
+                    System.out.print("*");
             }
             System.out.println();
             space++;
